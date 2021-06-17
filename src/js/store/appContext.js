@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from "react";
-import getState from "./flux.js";
+import React, { createContext, useEffect, useState } from "react";
+import getState from "./flux";
 
-export const Context = React.createContext(null);
+export const Context = createContext(null);
 
-const injectContext = PassedComponent => {
+export default function injectContext(PassedComponent) {
 	const StoreWrapper = props => {
 		const [state, setState] = useState(
 			getState({
 				getStore: () => state.store,
 				getActions: () => state.actions,
-				setStore: updatedStore =>
+				setStore: updateStore =>
 					setState({
-						store: Object.assign(state.store, updatedStore),
+						store: Object.assign(state.store, updateStore),
 						actions: { ...state.actions }
 					})
 			})
 		);
 
-		useEffect(() => {}, []);
+		useEffect(() => {
+			state.actions.getPeople("https://www.swapi.tech/api/people", {});
+		}, []);
 
 		return (
 			<Context.Provider value={state}>
@@ -25,7 +27,6 @@ const injectContext = PassedComponent => {
 			</Context.Provider>
 		);
 	};
-	return StoreWrapper;
-};
 
-export default injectContext;
+	return StoreWrapper;
+}

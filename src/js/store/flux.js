@@ -1,26 +1,32 @@
-const getState = ({ setStore }) => {
+export default function getState({ getStore, getActions, setStore }) {
 	return {
 		store: {
-			people: "",
-			planets: "",
-			vehicles: "",
-			starships: ""
+			people: null,
+			error: null
 		},
 		actions: {
-			getPeople: () => {
-				fetch("https://www.swapi.tech/api/people")
-					.then(Response => {
-						Response.json;
-					})
-					.then(data => {
-						setStore({ people: data });
-					})
-					.catch(error => {
-						console.error(error);
+			getPeople: async (
+				url,
+				options = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				}
+			) => {
+				try {
+					const response = await fetch(url, options);
+					if (response.status !== 200) throw new Error({ message: "Error al consultar personajes" });
+					const data = await response.json();
+					setStore({
+						people: data
 					});
+				} catch (error) {
+					setStore({
+						error: error.message
+					});
+				}
 			}
 		}
 	};
-};
-
-export default getState;
+}
