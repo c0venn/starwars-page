@@ -1,28 +1,26 @@
-const getState = ({ getStore, getActions, setStore }) => {
-    return {
-        store: {
-            people: "null",
-            planets: "null",
-            vehicles: "null",
-            starships: "null"
-        },
-        actions: {
-            LoadingSomeData: () => {
-                fetch("https://www.swapi.tech/api/people",{
-                    method: 'Get',
-                    headers: {
-                    'Content-Type': 'application/json'
-                },
-                    body: JSON.stringify({ people })
-                 }));
-					.then(res => res.json())
-                .then(data => {
-                    setStore({ people: data });
-                }
-					.catch(err => console.error(err));
-        }
-    }
-};
+const getState = ({ setStore }) => {
+	return {
+		store: {
+			people: "",
+			planets: "",
+			vehicles: "",
+			starships: ""
+		},
+		actions: {
+			getPeople: () => {
+				fetch("https://www.swapi.tech/api/people")
+					.then(Response => {
+						Response.json;
+					})
+					.then(data => {
+						setStore({ people: data });
+					})
+					.catch(error => {
+						console.error(error);
+					});
+			}
+		}
+	};
 };
 
 export default getState;
