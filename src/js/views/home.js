@@ -3,7 +3,12 @@ import React from "react";
 const Home = () => {
 	return (
 		<>
-			<h1>home</h1>
+			<div className="container">
+				<div className="col-md-12">
+					<h1>THE DARK FORCE</h1>
+				</div>
+			</div>
+			<div className="fondo" />
 		</>
 	);
 };
