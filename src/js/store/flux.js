@@ -1,4 +1,4 @@
-export default function getState({ getStore, getActions, setStore }) {
+export default function getState({ setStore }) {
 	return {
 		store: {
 			people: null,
