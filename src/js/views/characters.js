@@ -7,12 +7,12 @@ const Characters = () => {
 		<>
 			<div className="container my-4">
 				<div className="row">
-					{people.results.map((character, index) => (
+					{people.results.map((people, index) => (
 						<div className="col-md-4" key={index}>
 							<div className="card my-3">
 								<img src="..." className="card-img-top" alt="..." />
 								<div className="card-body">
-									<h4 className="card-title text-center">{character.name}</h4>
+									<h4 className="card-title text-center">{people.name}</h4>
 								</div>
 							</div>
 						</div>
