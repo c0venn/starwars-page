@@ -1,4 +1,4 @@
-export default function getState({ setStore }) {
+const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			people: null,
@@ -29,4 +29,6 @@ export default function getState({ setStore }) {
 			}
 		}
 	};
-}
+};
+
+export default getState;

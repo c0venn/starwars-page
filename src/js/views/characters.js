@@ -1,8 +1,9 @@
 import React from "react";
+import { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 
 const Characters = () => {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
 	const { people } = store;
 
 	return (
