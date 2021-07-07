@@ -8,7 +8,6 @@ const Home = () => {
 					<h1>THE DARK FORCE</h1>
 				</div>
 			</div>
-			<div className="fondo" />
 		</>
 	);
 };

@@ -46,7 +46,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.status !== 200) throw new Error({ message: "Error al consultar personajes" });
 					const data = await response.json();
 					setStore({
-						people: data
+						planets: data
 					});
 				} catch (error) {
 					setStore({
@@ -68,7 +68,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.status !== 200) throw new Error({ message: "Error al consultar personajes" });
 					const data = await response.json();
 					setStore({
-						people: data
+						species: data
 					});
 				} catch (error) {
 					setStore({
@@ -90,7 +90,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.status !== 200) throw new Error({ message: "Error al consultar personajes" });
 					const data = await response.json();
 					setStore({
-						people: data
+						vehicles: data
 					});
 				} catch (error) {
 					setStore({
@@ -112,7 +112,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.status !== 200) throw new Error({ message: "Error al consultar personajes" });
 					const data = await response.json();
 					setStore({
-						people: data
+						starships: data
 					});
 				} catch (error) {
 					setStore({
@@ -134,7 +134,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.status !== 200) throw new Error({ message: "Error al consultar personajes" });
 					const data = await response.json();
 					setStore({
-						people: data
+						films: data
 					});
 				} catch (error) {
 					setStore({

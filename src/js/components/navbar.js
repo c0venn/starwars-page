@@ -29,6 +29,21 @@ const Navbar = () => {
 								Planets
 							</Link>
 						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="/starships">
+								Starships
+							</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="/vehicles">
+								Vehicles
+							</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="/films">
+								Movies
+							</Link>
+						</li>
 					</ul>
 				</div>
 			</nav>

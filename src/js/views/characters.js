@@ -10,19 +10,19 @@ const Characters = () => {
 
 	const handleChangePage = pageNumber => {
 		setPage(pageNumber);
-		actions.getPeople(`https://www.swapi.tech/api/people/?page=${pageNumber}&limit=9`);
+		actions.getPeople(`https://www.swapi.tech/api/people/?page=${pageNumber}&limit=6`);
 	};
 
 	return (
-		<div className="container my-4">
-			<div className="row">
+		<>
+			<div className="row bg-custom rounded-3 py-1">
 				{!!people.results.length > 0 ? (
 					people.results.map((people, index) => (
 						<div className="col-md-4" id={index} key={index}>
-							<div className="card my-3 shadow">
+							<div className="card my-3 shadow animate__bounceIn animate__faster">
 								<img src="..." className="card-img-top" alt="img" />
 								<div className="card-body">
-									<h4 className="card-title text-center">{people.name}</h4>
+									<h4 className="card-title fs-5 text-center">{people.name}</h4>
 								</div>
 							</div>
 						</div>
@@ -40,7 +40,7 @@ const Characters = () => {
 					{!!people && people.results.length > 0 ? (
 						<Pagination
 							activePage={page}
-							itemsCountPerPage={9}
+							itemsCountPerPage={6}
 							totalItemsCount={people.total_records}
 							onChange={handleChangePage}
 							itemClass="page-item"
@@ -51,7 +51,7 @@ const Characters = () => {
 					)}
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 export default Characters;
